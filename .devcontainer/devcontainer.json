@@ -1,0 +1,17 @@
+{
+  "name": "Ruby",
+
+  "build": {
+    "dockerfile": "Dockerfile"  
+  },
+
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+
+  "extensions": [
+    "rebornix.Ruby"
+  ],
+
+  "postCreateCommand": "gem install bundler && bundle install"
+}
