@@ -1,17 +1,22 @@
 {
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  
   "name": "Ruby",
 
-  "build": {
-    "dockerfile": "Dockerfile"  
-  },
+  "customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+			"extensions": [
+        "shopify.ruby-lsp"
+      ]
+		}
+	},
 
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-
-  "extensions": [
-    "rebornix.Ruby"
-  ],
-
-  "postCreateCommand": "gem install bundler && bundle install"
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "bundle install",
+  "postStartCommand": "ruby app.rb"
+  
 }
